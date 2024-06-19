@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <title>Задание 4</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <section id="navigation">
+        <img src="img/menu.png" alt="Навигация">
+    </section>
+    <section class="title">
+        <h1>Флип карточки</h1>
+    </section>
+    <section id="cards">
+        <div class="card js-card ">
+            <div class="card-inner">
+                <div class="card-front js-card-front">
+                    <div class="content-card">
+                        <img src="img/card1.png" alt="карточка 1">
+                        <h2>Full-Array Local Dimming</h2>
+                        <p>ZG9 AG9 AG8 <span> XG95</span> XG85 XG80 XG70 WG6 </p>
+                    </div>
+                    <button class="turn"></button>
+                </div>
+                <div class="card-back js-card-back">
+                        <div class="text-flip">
+                            <h2 class="title-flip">Full-Array Local Dimming</h2>
+                            <p>Обеспечивает глубокий черный цвет и отсутствие засветки вокруг ярких объектов. Отличается сверхплотным расположением светодиодов, управлением.</p>
+                        </div>
+                        <button class="flip-turn-btn"></button>
+                </div>
+            </div>
+        </div>
+        <div class="card js-card">
+            <div class="card-inner">
+                <div class="card-front js-card-front">
+                    <div class="content-card">
+                        <img src="img/card2.png" alt="карточка 2">
+                        <h2>Edge LED</h2>
+                        <p>ZG9 AG9 AG8<span> XG80 XG70</span> WG6</p>
+                    </div>
+                    <button class="turn"></button>
+                </div>
+                <div class="card-back js-card-back">
+                        <div class="text-flip">
+                            <h2 class="title-flip">Edge LED</h2>
+                            <p>Обеспечивает глубокий черный цвет и отсутствие засветки вокруг ярких объектов. Отличается сверхплотным расположением светодиодов, управлением каждым из них и интеллектуальным алгоритмом локального затемнения.</p>
+                        </div>
+                        <button class="flip-turn-btn"></button>
+                </div>
+            </div>
+        </div>
+        <div class="card js-card">
+            <div class="card-inner">
+                <div class="card-front js-card-front">
+                    <div class="content-card">
+                        <img src="img/card2.png" alt="карточка 3">
+                        <h2>Edge LED</h2>
+                        <p>ZG9 AG9 AG8<span> XG95 XG85 XG80 XG70</span> WG6</p>
+                    </div>
+                    <button class="turn"></button>
+                </div>
+                <div class="card-back js-card-back">
+                        <div class="text-flip">
+                            <h2 class="title-flip">Edge LED</h2>
+                            <p>Обеспечивает глубокий черный цвет и отсутствие засветки вокруг ярких объектов.</p>
+                        </div>
+                        <button class="flip-turn-btn"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <button class="continue js-button" disabled>Продолжить</button>
+    <footer>
+        <img src="img/footer.png" alt="Подвал">
+    </footer>
+    <script>
+        let card = document.querySelectorAll('.js-card')
+        let button = document.querySelector('.js-button')
+
+        card.forEach((item, idx) => {
+            item.addEventListener('mouseover', () => {
+                item.children[0].style.transform = "rotateY(180deg)";
+                item.classList.add('visible');
+                checkAllDivsVisible();
+            })
+        })
+
+        function checkAllDivsVisible(){
+            let allVisible = Array.from(card).every(el => el.classList.contains('visible'));
+            if (allVisible) {
+                button.disabled = false;
+            }
+        }
+
+    </script>
+</body>
+</html>
